@@ -76,9 +76,9 @@ export default function VolunteerDashboard() {
         AsyncStorage.getItem('volunteers'),
       ]);
       
-      if (storedEvents && storedVolunteers) {
+      if (storedEvents) {
         const parsedEvents = JSON.parse(storedEvents);
-        const volunteers = JSON.parse(storedVolunteers);
+        const volunteers = storedVolunteers ? JSON.parse(storedVolunteers) : [];
         
         // Calculate volunteer counts for each event
         const eventsWithVolunteers = parsedEvents.map((event: Event) => {
